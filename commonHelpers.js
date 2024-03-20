@@ -1,26 +1,12 @@
-import{S as d,i as c}from"./assets/vendor-f3f87f24.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))a(t);new MutationObserver(t=>{for(const r of t)if(r.type==="childList")for(const i of r.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&a(i)}).observe(document,{childList:!0,subtree:!0});function e(t){const r={};return t.integrity&&(r.integrity=t.integrity),t.referrerPolicy&&(r.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?r.credentials="include":t.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function a(t){if(t.ep)return;t.ep=!0;const r=e(t);fetch(t.href,r)}})();const u="41883234-6691d5bcae5feebb5d3051225",f=document.getElementById("searchForm"),l=document.getElementById("searchInput"),n=document.querySelector(".loader"),p=document.querySelector(".gallery");var m=new d(".gallery a",{captionDelay:250,captionsData:"alt",captionPosition:"bottom"});f.addEventListener("submit",function(o){o.preventDefault();const s=l.value.trim();s!==""&&(n.style.display="block",p.innerHTML="",fetch(`https://pixabay.com/api/?key=${u}&q=${s}&image_type=photo&orientation=horizontal&safesearch=true`).then(e=>e.json()).then(e=>{n.style.display="none",e.hits.length>0?y(e.hits):c.error({position:"topRight",message:"Sorry, there are no images matching your search query. Please try again."})}).catch(e=>{n.style.display="none",console.error("Error fetching data:",e),c.error({position:"topRight",message:"An error occurred. Please try again later."})}))});function y(o){const s=o.map(e=>`
-      <div class="image-container">
-        <a href="${e.largeImageURL}">
-          <img src="${e.webformatURL}" alt="${e.tags}">
-        </a>
-        <div class="image-panel">
-          <div class="statistic">
-            <p>Likes</p>
-            <p>${e.likes}</p>
-          </div>
-          <div class="statistic">
-            <p>Views</p>
-            <p>${e.views}</p>
-          </div>
-          <div class="statistic">
-            <p>Comments</p>
-            <p>${e.comments}</p>
-          </div>
-          <div class="statistic">
-            <p>Downloads</p>
-            <p>${e.downloads}</p>
-          </div>
-        </div>
-      </div>
-      `).join("");p.innerHTML=s,l.value="",m.refresh()}
+import{i as a,S as u}from"./assets/vendor-5b791d57.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))c(t);new MutationObserver(t=>{for(const o of t)if(o.type==="childList")for(const n of o.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&c(n)}).observe(document,{childList:!0,subtree:!0});function e(t){const o={};return t.integrity&&(o.integrity=t.integrity),t.referrerPolicy&&(o.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?o.credentials="include":t.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function c(t){if(t.ep)return;t.ep=!0;const o=e(t);fetch(t.href,o)}})();function d(){const r=h.value.trim().split(",").join("+"),s=new URLSearchParams({key:"42956333-dca595600c3a5bd958b67132a",q:[r],image_type:"photo",orientation:"horizontal",safesearch:!0});return y(),fetch(`https://pixabay.com/api/?${s}`).then(e=>{if(!e.ok)throw new Error(e.status);return e.json()})}function f(r){if(r.length==0)a.error({message:"Sorry, there are no images matching your search query. Please, try again!",theme:"dark",progressBarColor:"#FFFFFF",color:"#EF4040",position:"topRight"});else{const s=r.map(e=>`<li class="photos-list-item">
+            <a class="photos-list-link" href="${e.largeImageURL}">
+            <img class="photo" src="${e.webformatURL}" alt="${e.tags}"/>
+            </a>
+            <ul class="photo-information-container">
+            <li class="item-photo-information-container"><p><span class="accent">Likes</span></br>${e.likes}</p></li>
+            <li class="item-photo-information-container"><p><span class="accent">Views</span></br>${e.views}</p></li>
+            <li class="item-photo-information-container"><p><span class="accent">Comments</span></br>${e.comments}</p></li>
+            <li class="item-photo-information-container"><p><span class="accent">Downloads</span></br>${e.downloads}</p></li>
+            </ul>
+            </li>`).join("");m.insertAdjacentHTML("beforeend",s),g.refresh()}}const i=document.querySelector(".search-form"),h=i.elements.search,m=document.querySelector(".gallery"),g=new u(".gallery a",{captionsData:"alt",captionDelay:250}),l=document.querySelector(".loader");l.style.display="none";const y=()=>{l.style.display="flex"},p=()=>{l.style.display="none"};i.addEventListener("submit",F);function F(r){r.preventDefault(),m.innerHTML="",r.target.elements.search.value.trim()!==""?(window.onload=()=>{d().then(e=>{f(e.hits),p()}).catch(e=>{console.log(e),p(),a.error({message:"Sorry, an error occurred while loading. Please try again!",theme:"dark",progressBarColor:"#FFFFFF",color:"#EF4040",position:"topRight"})})},window.onload(),i.reset()):a.show({message:"Please complete the field!",theme:"dark",progressBarColor:"#FFFFFF",color:"#EF4040",position:"topRight"})}
 //# sourceMappingURL=commonHelpers.js.map
