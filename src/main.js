@@ -41,7 +41,7 @@ function sendForm(evt) {
                     console.log(error);
                     hideLoader();
                     iziToast.error({
-                        message: 'Sorry, an error occurred while loading. Please try again!',
+                        message: 'Sorry, an error occurred while loading. Please, try again!',
                         theme: 'dark',
                         progressBarColor: '#FFFFFF',
                         color: '#EF4040',
@@ -53,7 +53,7 @@ function sendForm(evt) {
             form.reset();
         } else {
             iziToast.show({
-                message: 'Please complete the field!',
+                message: 'Please, complete the field!',
                 theme: 'dark',
                 progressBarColor: '#FFFFFF',
                 color: '#EF4040',
